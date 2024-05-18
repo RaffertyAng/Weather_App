@@ -6,14 +6,19 @@
     <title>Weather</title>
 </head>
 <body>
-    <h1>Weather in {{ city }}</h1>
-    <p>{{ weather }}</p>
-    <p>{{ temp }} °C</p>
-
+    <h1>Weather App</h1>
     <form action="/" method="POST">
-        <label for="newCity">Enter another city:</label>
+        <label for="newCity">Enter city:</label>
         <input type="text" id="newCity" name="newCity" required>
         <button type="submit">Get Weather</button>
     </form>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% elif city %}
+        <h2>Weather in {{ city }}</h2>
+        <p>{{ weather }}</p>
+        <p>{{ temp }} °C</p>
+    {% endif %}
 </body>
 </html>
